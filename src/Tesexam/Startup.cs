@@ -40,7 +40,7 @@ namespace Tesexam
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddSingleton<IMongoDbContext, TesexamDbContext>();
+            services.AddSingleton<TesexamDbContext>();
 
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddMongoStores<TesexamDbContext, ApplicationUser, IdentityRole>()
@@ -48,9 +48,7 @@ namespace Tesexam
 
             services.AddMvc();
 
-            services.AddSingleton(provider => Configuration);
-
-            services.AddScoped<QuizRepository>();
+            services.AddSingleton<IConfigurationRoot>(Configuration);
 
             // Add application services.
             services.AddTransient<IEmailSender, AuthMessageSender>();
