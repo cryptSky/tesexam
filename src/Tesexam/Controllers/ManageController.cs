@@ -9,7 +9,7 @@ using Microsoft.Extensions.Logging;
 using Tesexam.Models;
 using Tesexam.Models.ManageViewModels;
 using Tesexam.Services;
-using Tesexam.Data.Infrastructure;
+using Data.Infrastructure;
 
 namespace Tesexam.Controllers
 {

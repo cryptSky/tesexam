@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Hub.Interfaces
 {
-    interface IQuizProcessor
+    public interface IQuizProcessor
     {
     }
 }

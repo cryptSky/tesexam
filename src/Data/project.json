@@ -2,7 +2,9 @@
   "version": "1.0.0-*",
 
   "dependencies": {
-    "AspNetCore.Identity3.MongoDB": "1.0.0"
+    "AspNetCore.Identity3.MongoDB": "1.0.0",
+    "Newtonsoft.Json": "9.0.1",
+    "System.Runtime.Serialization.Primitives": "4.1.1"
   },
 
   "frameworks": {

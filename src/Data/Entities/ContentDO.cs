@@ -1,12 +1,25 @@
 ﻿using Data.Entities.Enums;
+using Data.Infrastructure.JsonNET;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
+using Newtonsoft.Json;
 using System.Collections.Generic;
 
 namespace Data.Entities
 {
-    public class ContentDO : Entity
+    [JsonConverter(typeof(ContentConverter))]
+    public class ContentDO
     {
-        public IEnumerable<ControlDO> Controls { get; set; }
+        public List<ControlDO> Controls { get; private set; }
+
+        public ContentDO()
+        {
+            Controls = new List<ControlDO>();
+        }
+
+        public void AddControl(ControlDO control)
+        {
+            Controls.Add(control);
+        }
     }
 }

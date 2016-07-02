@@ -6,29 +6,16 @@ using System.Threading.Tasks;
 
 namespace Data.Entities.Enums
 {
-    public enum QustionType
+    public enum ResponseType
     {
         SingleChoice,
         MultipleChoice,
-        Response
-    }
-
-    public enum AnswerType
-    {
-        Id,
-        ListIds,
-        TextData,
-        LatexData,
+        Text,
+        Latex,
         SourceCode,
-        GeoSpartialData,
-        SoundData,
-        ImageData
+        Sound,
+        Image,
+        GeoSpartial
     }
 
-    public enum ControlType
-    {
-        TextBox,
-        Image,
-        List
-    }
 }

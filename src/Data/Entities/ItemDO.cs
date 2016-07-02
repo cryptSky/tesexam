@@ -1,17 +1,36 @@
-﻿using MongoDB.Bson;
-using MongoDB.Bson.Serialization.Attributes;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using Data.Infrastructure.JsonNET;
+using Newtonsoft.Json;
 
 namespace Data.Entities
 {
-    public class ItemDO : Entity
+    public class ItemDO
     {
         public QuestionDO Question { get; set; }
-        public IEnumerable<VariantDO> Variants { get; set; }
-        public AnswerDO CorrectAnswer { get; set; }
+        public List<AnswerDO> PossibleAnswers { get; set; }
+
+        [JsonConverter(typeof(UserAnswerConverter))]
+        public UserAnswerDO CorrectAnswer { get; set; }
+
+        public ItemDO()
+        {
+            PossibleAnswers = new List<AnswerDO>();
+        }
+
+        public void SetQuestion(QuestionDO question)
+        {
+            Question = question;
+        }
+
+        public void AddPossibleAnswer(AnswerDO variant)
+        {
+            PossibleAnswers.Add(variant);            
+            
+        }
+
+        public void SetCorrectAnswer(UserAnswerDO correctAnswer)
+        {
+            CorrectAnswer = correctAnswer;
+        }
     }
 }

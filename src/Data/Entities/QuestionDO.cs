@@ -1,4 +1,5 @@
-﻿using MongoDB.Bson;
+﻿using Data.Entities.Enums;
+using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 using System;
 using System.Collections.Generic;
@@ -8,8 +9,8 @@ using System.Threading.Tasks;
 
 namespace Data.Entities
 {
-    public class QuestionDO : Entity
+    public class QuestionDO
     {
-        public ContentDO Content { get; set;  }
+       public ContentDO Content { get; set;  }
     }
 }

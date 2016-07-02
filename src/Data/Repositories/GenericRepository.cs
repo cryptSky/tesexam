@@ -6,7 +6,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Tesexam.Data.Infrastructure;
 
 namespace Data.Repositories
 {
@@ -21,7 +20,7 @@ namespace Data.Repositories
 
             // exclude DO from name of the collection
             var entityName = typeof(TEntity).Name;
-            var collectionName = entityName.Substring(entityName.Length - 2).ToLower();
+            var collectionName = entityName.Substring(0, entityName.Length - 2).ToLower();
 
             Collection = _context.Database.GetCollection<TEntity>(collectionName);
         }       
@@ -42,7 +41,7 @@ namespace Data.Repositories
 
         public async Task Add(TEntity entity)
         {
-            await Collection.InsertOneAsync(entity);
+            await Collection.InsertOneAsync(entity, new InsertOneOptions { BypassDocumentValidation = true } );
         }
 
         public async Task Remove(TEntity entity)

@@ -7,12 +7,12 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using Tesexam.Models;
 using Tesexam.Services;
 using Data.Interfaces;
-using Tesexam.Data.Infrastructure;
 using AspNetCore.Identity3.MongoDB;
-using Data.Repositories;
+using Data.Infrastructure;
+using Hub.Interfaces;
+using Hub.Services;
 
 namespace Tesexam
 {
@@ -29,6 +29,7 @@ namespace Tesexam
             {
                 // For more details on using the user secret store see http://go.microsoft.com/fwlink/?LinkID=532709
                 builder.AddUserSecrets();
+
             }
 
             builder.AddEnvironmentVariables();
@@ -50,6 +51,10 @@ namespace Tesexam
 
             services.AddSingleton<IConfigurationRoot>(Configuration);
 
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+            services.AddSingleton<IQuizService, QuizService>();
+            
             // Add application services.
             services.AddTransient<IEmailSender, AuthMessageSender>();
             services.AddTransient<ISmsSender, AuthMessageSender>();

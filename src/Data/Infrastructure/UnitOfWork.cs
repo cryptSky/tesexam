@@ -10,14 +10,19 @@ namespace Data.Infrastructure
     public class UnitOfWork : IUnitOfWork
     {
         private QuizRepository _quizRepository;
-        private IServiceProvider _provider;
-
+        private TesexamDbContext _context;
+       
         public QuizRepository QuizRepository
         {
             get
             {
-                return _quizRepository ?? (_quizRepository = new QuizRepository((IMongoDbContext)_provider.GetService(typeof(IMongoDbContext))));
+                return _quizRepository ?? (_quizRepository = new QuizRepository(_context));
             }
+        }
+
+        public UnitOfWork(TesexamDbContext context)
+        {
+            _context = context;
         }
 
         public void Dispose()

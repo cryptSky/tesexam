@@ -7,7 +7,7 @@ using MongoDB.Driver;
 using Microsoft.Extensions.Configuration;
 using Data.Interfaces;
 
-namespace Tesexam.Data.Infrastructure
+namespace Data.Infrastructure
 {
     public class TesexamDbContext :  MongoIdentityContext<ApplicationUser, IdentityRole>, IMongoDbContext
     {

@@ -1,0 +1,22 @@
+{
+  "version": "1.0.0-*",
+
+  "dependencies": {
+    "Data": "1.0.0-*",
+    "dotnet-test-xunit": "2.2.0-preview2-build1029",
+    "Hub": "1.0.0-*",
+    "xunit": "2.2.0-beta2-build3300",
+    "xunit.runner.console": "2.2.0-beta2-build3300",
+    "xunit.runner.utility": "2.2.0-beta2-build3300",
+    "xunit.runner.visualstudio": "2.2.0-beta2-build1149"
+  },
+
+  "frameworks": {
+    "net461": {
+      "dependencies": {
+        "MongoDB.Driver": "2.2.4"
+      }
+    }
+  },
+  "testRunner": "xunit"
+}

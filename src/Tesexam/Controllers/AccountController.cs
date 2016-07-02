@@ -11,7 +11,7 @@ using Microsoft.Extensions.Logging;
 using Tesexam.Models;
 using Tesexam.Models.AccountViewModels;
 using Tesexam.Services;
-using Tesexam.Data.Infrastructure;
+using Data.Infrastructure;
 
 namespace Tesexam.Controllers
 {

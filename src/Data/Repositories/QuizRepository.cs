@@ -7,13 +7,13 @@ using Data.Entities;
 using MongoDB.Bson;
 using Data.Interfaces;
 using MongoDB.Driver;
-using Tesexam.Data.Infrastructure;
+using Data.Infrastructure;
 
 namespace Data.Repositories
 {
     public class QuizRepository : GenericRepository<QuizDO>
     {
-        public QuizRepository(IMongoDbContext context) : base(context)
+        public QuizRepository(TesexamDbContext context) : base(context)
         {
         }
     }
